@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="EvgeniyKis">
+        <meta name="description" content="Сайт про игру Dark Lords">
+        <meta name="keywords" content="Dark Lords,Тёмные Лорды">
+        <link rel="stylesheet" href="css/styles.css">
+        <title>Dark Lords</title>
+    </head>
+    <body>
+        <div>
+            <ul id="nav">
+                <li><a href="">Меню</a>
+                  <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="index2.html">Персонаж</a></li>
+                    <li><a href="index3.html">Инфа</a></li>
+                  </ul>
+                </li>
+            </ul>
+        </div>
+        <header>
+            Dark Lords
+        </header>
+        <main id="mainIndex2">
+            <p >(После перезагрузки страницы данные обнулятся!)</p>
+            <div class="allsDiv">
+                <p>Имя:<input type="text"></p>
+                <label>Раса:</label><br>
+                <select onchange="changeCharacteristics(event, power, dexterity, endurance)">
+                    <option></option>
+                    <option>Человек</option>
+                    <option>Орк</option>
+                    <option>Эльф высших кровей</option>
+                    <option>Эльф бледных кровей</option>
+                    <option>Эльф лесных кровей</option>
+                    <option>Людо-волк</option>
+                    <option>Людо-кот</option>
+                    <option>Людо-ящер</option>
+                    <option>Людо-птица</option>
+                </select>
+                <label>Душа:</label><br>
+                <select>
+                    <option></option>
+                    <option>Стабильная душа</option>
+                    <option>Бессмертная душа</option>
+                    <option>Стойкая душа</option>
+                    <option>Душа ядро</option>
+                    <option>Подвижная душа</option>
+                    <option>Недвижимая душа</option>
+                    <option>Воинствующая душа</option>
+                    <option>Бронированная душа</option>
+                    <option>Гневная душа</option>
+                    <option>Кузнечная душа</option>
+                </select><br>
+                <label>Предыстория:</label><br>
+                <select onchange="changeOwnership(event, lightArmor, mediumArmor, heavyArmor, shield, knife, cleaver, stick, mace, hammer, axe,
+                bigAxe, spear, longBlade, shortBlade, shortBow, longBow, lightCrossbow, heavyCrossbow)">
+                    <option></option>
+                    <option>Стражник</option>
+                    <option>Ученик волшебника</option>
+                    <option>Алхимик</option>
+                    <option>Механик</option>
+                    <option>Ученик вора</option>
+                    <option>Купец</option>
+                    <option>Ученик кузнеца</option>
+                </select><br>
+            </div>
+            <div class="allsDiv">
+                <table id="oneTable">
+                    <caption>Характеристики</caption>
+                    <tr>
+                        <td>Сила</td>
+                        <td><input type="number" name="power" min="0" max="200"  value="0" id="power"></td>
+                    </tr>
+                    <tr> 
+                        <td>Ловкость</td>
+                        <td><input type="number" name="dexterity" min="0" max="200"  value="0" onchange="checkReaction(event, reaction)" id="dexterity"></td>
+                    </tr>
+                    <tr>
+                        <td>Реакции</td>
+                        <td id="reaction">0</td>
+                    </tr>
+                    <tr>
+                        <td>Выносливость</td>
+                        <td><input type="number" name="endurance" min="0" max="200"  value="0" onchange="checkMovement(event, movement)" id="endurance"></td>
+                    </tr>
+                    <tr>
+                        <td>ОД</td>
+                        <td id="movement">0</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="allsDiv">
+                <table id="twoTable">
+                    <caption>Владения</caption>
+                    <tr>
+                        <td rowspan="4">Доспехи</td>
+                        <td>лёгкие</td>
+                        <td><select id="lightArmor">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>средние</td>
+                        <td><select id="mediumArmor">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>тяжёлые</td>
+                        <td><select id="heavyArmor">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>щиты</td>
+                        <td><select id="shield">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="10" class="verticalText">Основное оружие</td>
+                        <td>кинжалы</td>
+                        <td><select id="knife">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>тесаки</td>
+                        <td><select id="cleaver">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>дубины</td>
+                        <td><select id="stick">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>булавы</td>
+                        <td><select id="mace">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>молоты</td>
+                        <td><select id="hammer">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>топоры</td>
+                        <td><select id="axe">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>секиры</td>
+                        <td><select id="bigAxe">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>копья</td>
+                        <td><select id="spear">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>длинные клинки</td>
+                        <td><select id="longBlade">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>короткие клинки</td>
+                        <td><select id="shortBlade">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Луки</td>
+                        <td>короткие</td>
+                        <td><select id="shortBow">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>длинные</td>
+                        <td><select id="longBow">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Арбалеты</td>
+                        <td>лёгкие</td>
+                        <td><select id="lightCrossbow">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>тяжёлые</td>
+                        <td><select id="heavyCrossbow">
+                            <option>нет</option>
+                            <option>да</option>
+                        </select></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="allsDiv">
+                <table id="threeTable">
+                    <caption>Навыки</caption>
+                    <tr>
+                        <td>Внимательность</td>
+                        <td><input type="number" name="power" min="0" max="20" value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Акробатика</td>
+                        <td><input type="number" name="power" min="0" max="20"  value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Атлетика</td>
+                        <td><input type="number" name="power" min="0" max="20"  value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Картография</td>
+                        <td><input type="number" name="power" min="0" max="20"  value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Скрытность</td>
+                        <td><input type="number" name="power" min="0" max="20"  value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Маскировка</td>
+                        <td><input type="number" name="power" min="0" max="20"  value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Дрессировка</td>
+                        <td ><input type="number" name="power" min="0" max="20"  value="0"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="allsDiv">
+                <table id="fourTable">
+                    <caption>Ремесло</caption>
+                    <tr>
+                        <td>Алхимия</td>
+                        <td><input type="number" name="power" min="0" max="20"  value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Кузнечное дело</td>
+                        <td><input type="number" name="power" min="0" max="20"  value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Инженерия</td>
+                        <td><input type="number" name="power" min="0" max="20"  value="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Врачевание</td>
+                        <td><input type="number" name="power" min="0" max="20"  value="0"></td>
+                    </tr>
+                </table>
+            </div>
+        </main>
+        <script src="js/main.js"></script>
+    </body>
+</html>
